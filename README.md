@@ -5,8 +5,9 @@
 
 ## Install
 
-The version listed in the default plugin index is different and it's broken.
-Make sure to run `plugin add elixir-ls <url>` WITH the URL to this repo.k
+The version listed in the default plugin index is different and it's broken,
+this fork is meant to fix the install script. Make sure to run the `plugin add`
+command using this repo URL as the ref if you'd like to use it, like so:
 
 ```bash
 asdf plugin add elixir-ls https://github.com/dnery/asdf-elixir-ls

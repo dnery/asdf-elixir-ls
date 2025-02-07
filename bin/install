@@ -11,7 +11,10 @@ function install() {
   local version=$2
   local install_path=$3
 
-  [ "$install_type" != "version" ] && echo "intall type, $install_type, is not supported" && exit 1
+  [ "$install_type" != "version" ] && echo "Install type \"$install_type\" is not supported" && exit 1
+  
+  major_version=$(echo $version | cut -d'.' -f1)
+  [[ $major_version -le 1 ]] && echo  "Major version is $major_version but >=2 is required" && exit 1
 
   local tmp_download_dir=$(mktemp -d)
   local repo="elixir-lsp/elixir-ls"
@@ -30,7 +33,8 @@ function install() {
   unzip "${tmp_download_dir}/${download_filename}"
   mkdir -p ./bin
   ln -s ../language_server.sh ./bin/elixir-ls
-  ln -s ../debugger.sh ./bin/elixir-ls-debugger
+  ln -s ../debug-adapter.sh ./bin/debug-adapter
+  ln -s ../launch.sh ./bin/launch.sh
   cp -fpr * "${install_path}"
 
   popd >/dev/null

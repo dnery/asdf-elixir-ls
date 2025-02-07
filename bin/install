@@ -32,9 +32,9 @@ function install() {
 
   unzip "${tmp_download_dir}/${download_filename}"
   mkdir -p ./bin
-  ln -sr ../language_server.sh ./bin/elixir-ls
-  ln -sr ../debug_adapter.sh ./bin/debug_adapter
-  ln -sr ../launch.sh ./bin/launch.sh
+  ln -s ../language_server.sh ./bin/elixir-ls
+  ln -s ../debug_adapter.sh ./bin/debug_adapter
+  ln -s ../launch.sh ./bin/launch.sh
   cp -fpr * "${install_path}"
 
   popd >/dev/null

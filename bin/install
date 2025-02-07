@@ -36,6 +36,9 @@ function install() {
   ln -s ../debug_adapter.sh ./bin/debug_adapter
   ln -s ../launch.fish ./bin/launch.fish
   ln -s ../launch.sh ./bin/launch.sh
+  ln -s ../launch.exs ./bin/launch.exs
+  ln -s ../installer.exs ./bin/installer.exs
+  ln -s ../quiet_install.exs ./bin/quiet_install.exs
   cp -fpr * "${install_path}"
 
   popd >/dev/null
